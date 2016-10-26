@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us" ng-app="Ritual" ng-controller="ctrl">
+<head>
+  <meta charset="utf-8">
+  <title>Ritual</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great|UnifrakturMaguntia|IM+Fell+English|IM+Fell+English+SC|Metamorphous' rel='stylesheet' type='text/css'>
+  <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+  <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
+  <script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+  <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="canvas-ops.js"></script>
+  <script type="text/javascript" src="ng-app.js"></script>
+</head>
+<body ng-keydown="keyPress($event)" tab-index=0>
+  <header><img src="sign.gif"  alt="Battlemancer"></header>
+  <main>
+    <section class="wizard-left">
+      <h2 ng-class="{'casting': !leftWizard.ready}">{{ leftWizard.name }}</h2>
+<label for="leftStrength"><span id="leftStrength">
+        Strength: {{ leftWizard.strength }}</span></label>
+      <canvas id="p1rc" width="90" height="90">
+        {{ leftWizard.sigil }}
+      </canvas>
+      <img id="left-img" ng-src="{{ leftStateImage(); }}"  alt="Left Wizard">
+      <canvas id="miniLeft" width="45" height="45"></canvas>
+    </section>
+    <section class="monsters">
+      
+      <img ng-src="{{ leftMonsterImage(); }}" id="leftMonster">
+      <img ng-src="{{ rightMonsterImage(); }}" id="rightMonster">
+      <!--<img ng-src="{{ leftPoof }}" id="leftPoof">-->
+      <!--<img ng-src="{{ rightPoof}}" id="rightPoof">-->
+      
+    </section>
+    <section class="wizard-right">
+      <h2 ng-class="{'casting': !rightWizard.ready}">{{ rightWizard.name }}</h2>
+      <label for="rightStrength"><span id="rightStrength">
+        Strength: {{ rightWizard.strength }}</span></label>
+      <canvas id="p2rc" width="90" height="90">
+        {{ rightWizard.sigil }}
+      </canvas>
+        <img id="right-img" ng-src="{{ rightStateImage(); }}"  alt="Right Wizard">
+        <canvas id="miniRight" width="45" height="45"></canvas>
+    </section>    
+  </main>
+  <footer>Made with ♥ and ☕ by our team, the Beardy Wizards, for the Global Game Jam, MMXVI</footer>
+  
+  <div class="modal fade" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 ng-if="winner" class="modal-title">{{winner.name}} has vanquished his opponent!</h4>
+        <h4 ng-if="!winner" class="modal-title">An Epic combat is about to begin...</h4>
+      </div>
+      <div ng-if="winner" class="modal-body">
+        Would you like a rematch?
+      </div>
+      <div ng-if="!winner" class="modal-body">
+        <p></p><label for="leftName">Left Wizard: 
+          <input id="leftName" type="text" ng-model="leftWizard.name"/>
+        </label></p>
+        <p></p><label for="rightName">Right Wizard: 
+          <input id="rightName" type="text" ng-model="rightWizard.name"/>
+        </label></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="begin()">Abracadabra, and <em>en guarde</em></em></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>

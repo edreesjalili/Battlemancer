@@ -1,0 +1,114 @@
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-large;
+	font-weight: bold;
+	background-color: #E3F0FB;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+body {
+	/* font-family: 'Metamorphous', cursive;
+	font-family: 'Fredericka the Great', cursive;
+	font-family: 'UnifrakturMaguntia', cursive;
+	font-family: 'Henny Penny', cursive;
+	font-family: 'IM Fell English SC', serif;
+	font-family: 'Mountains of Christmas', cursive;
+	*/
+	font-family: 'IM Fell English', serif;
+	margin: 0 auto;
+	text-align: center;
+	width: 1280px;
+	background-color: #506552;
+	position: relative;
+}
+header {
+	color: white;
+	text-align: center;
+
+	/*font-size: 2.5em;*/
+	text-transform: uppercase;
+	/*padding: .3em;*/
+	background-color: #B4D296;
+	height: 71px;
+}
+footer {
+	padding: 1em;
+	background-color: #506552;
+}
+
+html, body {
+    height: 100%;
+}
+h2 {
+	margin-bottom: 0;
+}
+main {
+    display: table;
+    height: 500px;
+    width: 1280px;
+    margin: 0px auto;
+	background-image: url(background.jpg);
+	background-size: 1280px 500px;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+section {
+    display: table-cell;
+    /*background-color: lightgray;*/
+    vertical-align: bottom;
+}
+section > * {
+	display:block;
+}
+.wizard-left, .wizard-right {
+    width: 256px;
+}
+.monsters {
+    /*background-color: beige;*/
+    width:512px;
+}
+
+canvas {
+	/*border: 1px solid black;*/
+	margin: 0 auto;
+}
+.monsters > img {
+	margin-bottom: 30px;
+    width: 300px;
+    height: 360px;
+    display: inline-block;
+}
+#leftPoof,#rightPoof {
+	top: -300px;
+	position: relative;
+}
+
+.wizContainer {
+	position: relative;
+}
+#miniLeft, #miniRight {
+	top: 311px;
+    position: absolute;
+    /*border: 1px solid black;*/
+    border-radius:20px;
+}
+#miniRight {
+	right: 218px;
+}
+#miniLeft {
+	left: 216px;
+}
+section img {
+	position:relative;
+	width: 256px;
+	left: 30px;
+    top: -30px;
+}
+input {
+	padding-left: 5px;
+}
+
+.casting {
+	color:grey;
+}
